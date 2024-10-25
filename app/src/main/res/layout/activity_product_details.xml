@@ -44,20 +44,19 @@
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardImage"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="350dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         app:cardCornerRadius="8dp"
-                        app:cardElevation="4dp"
-                        android:textColor="@color/white">
+                        app:cardElevation="4dp">
 
                         <ImageView
                             android:id="@+id/productImageView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/primary"
-                            android:maxHeight="600dp"
-                            android:minHeight="400dp"
+                            android:maxHeight="350dp"
+                            android:minHeight="350dp"
                             android:scaleType="fitCenter" />
                     </androidx.cardview.widget.CardView>
 
