@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp"
-        android:background="@color/primary">
+        android:background="@color/secondary">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,14 +51,6 @@
                     android:text="Price: LKR 0.00"
                     android:textColor="@color/text_secondary"
                     android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/itemCountTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Count: 1"
-                    android:textSize="14sp"
-                    android:textColor="@color/white"/>
             </LinearLayout>
 
             <LinearLayout
