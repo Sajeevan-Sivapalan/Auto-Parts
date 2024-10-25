@@ -12,7 +12,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/primary">
 
         <include
             layout="@layout/primary_tool_bar" />
@@ -27,32 +28,36 @@
             <androidx.drawerlayout.widget.DrawerLayout
                 android:id="@+id/drawer_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/primary" >
 
                 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                     android:id="@+id/swipeRefreshLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/primary" >
 
                     <LinearLayout
                         android:id="@+id/searchOutLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:background="@color/primary" >
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
+                            android:layout_margin="0dp"
                             app:cardCornerRadius="8dp"
-                            app:cardElevation="4dp">
+                            app:cardElevation="0dp"
+                            android:background="@color/primary">
 
                             <SearchView
                                 android:id="@+id/searchViewProducts"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="8dp"
-                                android:background="@null"
+                                android:layout_margin="0dp"
+                                android:background="@color/primary"
                                 android:iconifiedByDefault="false"
                                 android:queryHint="Search products..." />
                         </androidx.cardview.widget.CardView>
@@ -62,7 +67,8 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="vertical"
-                            android:paddingHorizontal="20dp">
+                            android:paddingHorizontal="20dp"
+                            android:layout_marginTop="20dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"

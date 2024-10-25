@@ -2,20 +2,17 @@ package adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.automate.LoginActivity;
 import com.example.automate.ProductDetailsActivity;
 import com.example.automate.R;
 import com.squareup.picasso.Picasso;
@@ -52,8 +49,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         holder.textViewName.setText(product.getName());
         holder.textViewPrice.setText(String.format("LKR %.2f", product.getPrice()));
-        Log.d("productImage", product.getProductImage());
 
+        // Set the rating for the product
+        holder.ratingBar.setRating((float) product.getRating());
+
+        Log.d("productImage", product.getProductImage());
 
         // Use Picasso to load the product image into the ImageView
         Picasso.get()
@@ -84,6 +84,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         TextView textViewName, textViewPrice;
         ImageView imageViewProduct;
+        RatingBar ratingBar;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -91,6 +92,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             textViewName = itemView.findViewById(R.id.textViewProductName);
             textViewPrice = itemView.findViewById(R.id.textViewProductPrice);
             imageViewProduct = itemView.findViewById(R.id.imageViewProduct);
+            ratingBar = itemView.findViewById(R.id.ratingBar);
         }
     }
 }
