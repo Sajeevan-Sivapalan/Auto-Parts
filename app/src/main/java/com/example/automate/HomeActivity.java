@@ -52,6 +52,7 @@ import java.util.List;
 import java.util.Set;
 
 import adapter.ProductAdapter;
+import model.CartManager;
 import model.Product;
 
 public class HomeActivity extends AppCompatActivity {
@@ -95,7 +96,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         cart_count = findViewById(R.id.cart_count);
-        cart_count.setText(String.valueOf(2));
+        cart_count.setText(String.valueOf(CartManager.getInstance().getCartCount()));
 
         navigatorDrawer = findViewById(R.id.navigatorDrawer);
         buttonDrawerToggle = findViewById(R.id.buttonDrawerToggle);

@@ -67,10 +67,19 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             Intent intent = new Intent(context, ProductDetailsActivity.class);
             intent.putExtra("productId", product.getId());
             intent.putExtra("productName", product.getName());
-            intent.putExtra("productPrice", product.getPrice());
-            intent.putExtra("productCategory", product.getProductCategoryName());
+            intent.putExtra("productImage", product.getProductImage());
+            intent.putExtra("categoryId", product.getCategoryId());
+            intent.putExtra("description", product.getDescription());
+            intent.putExtra("price", product.getPrice());
+            intent.putExtra("availableStock", product.getAvailableStock());
+            intent.putExtra("isActive", product.getIsActive());
+            intent.putExtra("vendorId", product.getVendor());
+            intent.putExtra("createdAt", product.getCreatedAt());
+            intent.putExtra("stockLastUpdated", product.getStockLastUpdated());
+            intent.putExtra("productCategoryName", product.getProductCategoryName());
+            intent.putExtra("vendorName", product.getVendorName());
+            intent.putExtra("averageRating", product.getRating());
             Log.d("productId", product.getId());
-
             context.startActivity(intent);
         });
     }

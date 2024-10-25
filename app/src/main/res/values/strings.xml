@@ -7,4 +7,6 @@
         <item>Price: Low to High</item>
         <item>Price: High to Low</item>
     </string-array>
+    <string name="full_screen_image">Full Screen View</string>
+    <string name="close_image">Close</string>
 </resources>
