@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.automate.LoginActivity;
+import com.example.automate.ProductDetailsActivity;
 import com.example.automate.R;
 import com.squareup.picasso.Picasso;
 
@@ -63,7 +64,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         // Handle item click to open ProductDetailActivity
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, LoginActivity.class);
+            Intent intent = new Intent(context, ProductDetailsActivity.class);
             intent.putExtra("productId", product.getId());
             intent.putExtra("productName", product.getName());
             intent.putExtra("productPrice", product.getPrice());
