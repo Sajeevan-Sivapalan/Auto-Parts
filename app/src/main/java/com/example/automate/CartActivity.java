@@ -37,14 +37,6 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnQua
                 "Durable spark plugs for better ignition.", 9.99, 200, true,
                 "vendor3", "2024-01-01", "2024-01-10", "Ignition", "SparkPro", 4.8));
 
-        productList.add(new Product("4", "Car Battery", "https://cdn2.hubspot.net/hubfs/121786/auto-parts.jpg", "category4",
-                "Long-lasting car battery with high performance.", 129.99, 80, true,
-                "vendor4", "2024-01-01", "2024-01-10", "Batteries", "PowerMax", 4.7));
-
-        productList.add(new Product("5", "Tire Pressure Gauge", "https://cdn2.hubspot.net/hubfs/121786/auto-parts.jpg", "category5",
-                "Essential tire pressure gauge for maintaining proper pressure.", 15.99, 120, true,
-                "vendor5", "2024-01-01", "2024-01-10", "Tools", "GaugeMate", 4.4));
-
         CartAdapter cartAdapter = new CartAdapter(productList, this);
         RecyclerView cartRecyclerView = findViewById(R.id.cartRecyclerView);
         cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
