@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Automate</string>
+    <string-array name="sorting_options">
+        <item>Default</item>
+        <item>A-Z</item>
+        <item>Z-A</item>
+        <item>Price: Low to High</item>
+        <item>Price: High to Low</item>
+    </string-array>
 </resources>
