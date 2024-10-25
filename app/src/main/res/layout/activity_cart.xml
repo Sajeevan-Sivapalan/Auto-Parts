@@ -45,16 +45,6 @@
                     android:textStyle="bold"
                     android:textColor="@color/white"/>
 
-                <Button
-                    android:id="@+id/cartUpdateButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="0dp"
-                    android:background="@drawable/primary_button"
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="10dp"
-                    android:text="Update Cart"
-                    android:textColor="@android:color/white" />
             </LinearLayout>
 
             <LinearLayout
@@ -116,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Total: $0.00"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:textColor="@color/text_secondary"/>
 
             <Button
@@ -124,10 +114,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/primary_button"
-                android:padding="20dp"
+                android:padding="20sp"
                 android:text="Checkout"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"/>
+                android:textSize="17sp"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

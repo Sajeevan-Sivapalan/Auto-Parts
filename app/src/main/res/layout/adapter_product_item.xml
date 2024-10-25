@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="@color/secondary">
 
         <ImageView
             android:id="@+id/imageViewProduct"
@@ -22,15 +23,19 @@
             android:id="@+id/textViewProductName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Name"
             android:paddingTop="8dp"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/textViewProductPrice"
             android:layout_width="wrap_content"
+            android:text="LKR 0.00"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
