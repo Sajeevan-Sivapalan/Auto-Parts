@@ -17,5 +17,5 @@
     <color name="statusColor">@color/secondary</color>
     <color name="green">#20961F</color>
     <color name="button_primary">#FF6500</color>
-    <color name="text_secondary">#ECDFCC</color>
+    <color name="text_secondary">#F3FDB98F</color>
 </resources>
