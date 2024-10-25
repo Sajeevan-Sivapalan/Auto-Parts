@@ -517,26 +517,25 @@ public class HomeActivity extends AppCompatActivity {
         // Create mock product data
         productList = new ArrayList<>();
 
-        // Sample mock products related to auto parts
-        productList.add(new Product("1", "Brake Pads", "https://cdn2.hubspot.net/hubfs/121786/auto-parts.jpg", "category1",
+        productList.add(new Product("1", "Brake Pads", "https://neobrake.com/wp-content/uploads/2016/06/NeoBrake-Air-Disc-Brake-Pads-2.1.png", "category1",
                 "High-quality brake pads for superior stopping power.", 49.99, 100, true,
-                "vendor1", "2024-01-01", "2024-01-10", "Brakes", "AutoCorp", 4.5));
+                "vendor1", "2024-01-01", "2024-01-10", "Brakes", "AutoCorp", 4));
 
-        productList.add(new Product("2", "Oil Filter", "https://cdn2.hubspot.net/hubfs/121786/auto-parts.jpg", "category2",
+        productList.add(new Product("2", "Oil Filter", "https://res.cloudinary.com/knfilters-com/image/upload/c_lpad,dpr_2.0,f_auto,h_540,q_auto,w_540/v1/media/catalog/product/H/P/HP-1007-REV_2.jpg?_i=AB", "category2",
                 "Oil filter for various car models.", 19.99, 150, true,
-                "vendor2", "2024-01-01", "2024-01-10", "Filters", "PartsCo", 4.2));
+                "vendor2", "2024-01-01", "2024-01-10", "Filters", "PartsCo", 5));
 
-        productList.add(new Product("3", "Spark Plugs", "https://cdn2.hubspot.net/hubfs/121786/auto-parts.jpg", "category3",
+        productList.add(new Product("3", "Spark Plugs", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHAvLF5RY893z8KAjXXdrlTn4JqSDAyqaW3w&s", "category3",
                 "Durable spark plugs for better ignition.", 9.99, 200, true,
-                "vendor3", "2024-01-01", "2024-01-10", "Ignition", "SparkPro", 4.8));
+                "vendor3", "2024-01-01", "2024-01-10", "Ignition", "SparkPro", 3));
 
-        productList.add(new Product("4", "Car Battery", "https://cdn2.hubspot.net/hubfs/121786/auto-parts.jpg", "category4",
+        productList.add(new Product("4", "Car Battery", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0BPa8MIIBTHCzvLkS69bnX-tR0CO9oacrfA&s", "category4",
                 "Long-lasting car battery with high performance.", 129.99, 80, true,
-                "vendor4", "2024-01-01", "2024-01-10", "Batteries", "PowerMax", 4.7));
+                "vendor4", "2024-01-01", "2024-01-10", "Batteries", "PowerMax", 4));
 
-        productList.add(new Product("5", "Tire Pressure Gauge", "https://cdn2.hubspot.net/hubfs/121786/auto-parts.jpg", "category5",
+        productList.add(new Product("5", "Tire Pressure Gauge", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6tR9TUsq7M0PkHxCdc8pVvrI9VhzJHrl4lA&s", "category5",
                 "Essential tire pressure gauge for maintaining proper pressure.", 15.99, 120, true,
-                "vendor5", "2024-01-01", "2024-01-10", "Tools", "GaugeMate", 4.4));
+                "vendor5", "2024-01-01", "2024-01-10", "Tools", "GaugeMate", 2));
 
         // Initially, all products are displayed
         filteredProductList = new ArrayList<>(productList);

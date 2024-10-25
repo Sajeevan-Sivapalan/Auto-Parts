@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="lightBlack">#353535</color>
+    <color name="lightBlack">#767676</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lightWhite">#BDBDBD</color>
     <color name="primary">#1a2531</color>
     <color name="secondary">#2f3d4e</color>
     <color name="secondaryLight">#5289FF</color>
+    <color name="darkRed">#840707</color>
     <color name="red">#FF0000</color>
     <color name="redLight">#F85252</color>
     <color name="gold">#FFD740</color>
-    <color name="divider_color">#BDBDBD</color>
-    <color name="ordersTextColor">@color/lightWhite</color>
-    <color name="ordersOnTextColor">@color/white</color>
-    <color name="statusColor">@color/primary</color>
+    <color name="divider_color">#353535</color>
+    <color name="ordersTextColor">@color/lightBlack</color>
+    <color name="ordersOnTextColor">@color/black</color>
+    <color name="statusColor">@color/secondary</color>
     <color name="green">#20961F</color>
     <color name="button_primary">#FF6500</color>
     <color name="text_secondary">#F2FAAD7E</color>

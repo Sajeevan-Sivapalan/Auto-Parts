@@ -111,6 +111,7 @@
                             android:gravity="center"
                             android:text="No products found"
                             android:textSize="18sp"
+                            android:textColor="@color/white"
                             android:visibility="gone" />
 
                         <androidx.recyclerview.widget.RecyclerView
@@ -145,7 +146,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Price Range"
-                                android:textColor="@color/ordersOnTextColor"
+                                android:textColor="@color/white"
                                 android:textSize="16sp" />
 
                             <LinearLayout
@@ -162,7 +163,8 @@
                                     android:background="@drawable/common_border_background"
                                     android:hint="Min Price"
                                     android:inputType="numberDecimal"
-                                    android:padding="10dp" />
+                                    android:padding="10dp"
+                                    android:textColor="@color/white"/>
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -170,7 +172,8 @@
                                     android:layout_gravity="center"
                                     android:paddingHorizontal="8dp"
                                     android:text="-"
-                                    android:textSize="20sp" />
+                                    android:textSize="20sp"
+                                    android:textColor="@color/white"/>
 
                                 <EditText
                                     android:id="@+id/editTextMaxPrice"
@@ -180,7 +183,8 @@
                                     android:background="@drawable/common_border_background"
                                     android:hint="Max Price"
                                     android:inputType="numberDecimal"
-                                    android:padding="10dp" />
+                                    android:padding="10dp"
+                                    android:textColor="@color/white"/>
                             </LinearLayout>
 
                             <TextView
@@ -189,7 +193,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
                                 android:text="Selected Range: $0 - $1000"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                android:textColor="@color/white" />
 
                             <Button
                                 android:id="@+id/buttonClearPriceFilter"
@@ -198,45 +203,51 @@
                                 android:paddingHorizontal="10dp"
                                 android:background="@drawable/primary_button"
                                 android:layout_marginBottom="30dp"
-                                android:text="Clear Price Filter" />
+                                android:text="Clear Price Filter"
+                                android:textColor="@color/white" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="20dp"
                                 android:text="Filter by Rating"
-                                android:textColor="@color/ordersOnTextColor"
+                                android:textColor="@color/white"
                                 android:textSize="16sp" />
 
                             <RadioGroup
                                 android:id="@+id/radioGroupRatings"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:textColor="@color/white" >
 
                                 <RadioButton
                                     android:id="@+id/radioRating1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="> 1 Star" />
+                                    android:text="> 1 Star"
+                                    android:textColor="@color/white"/>
 
                                 <RadioButton
                                     android:id="@+id/radioRating2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="> 2 Stars" />
+                                    android:text="> 2 Stars"
+                                    android:textColor="@color/white"/>
 
                                 <RadioButton
                                     android:id="@+id/radioRating3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="> 3 Stars" />
+                                    android:text="> 3 Stars"
+                                    android:textColor="@color/white"/>
 
                                 <RadioButton
                                     android:id="@+id/radioRating4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="> 4 Stars" />
+                                    android:text="> 4 Stars"
+                                    android:textColor="@color/white"/>
                             </RadioGroup>
 
                             <Button
@@ -247,7 +258,8 @@
                                 android:background="@drawable/primary_button"
                                 android:paddingHorizontal="10dp"
                                 android:layout_marginBottom="30dp"
-                                android:text="Clear Rating Filter" />
+                                android:text="Clear Rating Filter"
+                                android:textColor="@color/white"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -255,7 +267,7 @@
                                 android:layout_marginTop="16dp"
                                 android:layout_marginBottom="20dp"
                                 android:text="Filter by Category"
-                                android:textColor="@color/ordersOnTextColor"
+                                android:textColor="@color/white"
                                 android:textSize="16sp" />
 
                             <LinearLayout
@@ -273,7 +285,8 @@
                                 android:background="@drawable/primary_button"
                                 android:layout_marginTop="10dp"
                                 android:paddingHorizontal="10dp"
-                                android:text="Clear Category Filter" />
+                                android:text="Clear Category Filter"
+                                android:textColor="@color/white"/>
                         </LinearLayout>
                     </ScrollView>
                 </LinearLayout>
