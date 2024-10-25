@@ -131,8 +131,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Launch CartActivity when buttonDrawerMenuRight is clicked
-//                Intent intent = new Intent(Main.this, CartActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -142,35 +142,18 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int itemId = item.getItemId();
 
-//                if (itemId == R.id.navHome) {
-//                    // Load HomeFragment
-//                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                    transaction.replace(R.id.mainContent, new HomeFragment());
-//                    transaction.commit();
-//                } else if (itemId == R.id.navProfile) {
-//                    // Launch ProfileActivity
-//                    Intent intent = new Intent(Main.this, ProfileActivity.class);
-//                    startActivity(intent);
-//                } else if (itemId == R.id.navCart) {
-//                    // Launch CartActivity
-//                    Intent intent = new Intent(Main.this, CartActivity.class);
-//                    startActivity(intent);
-//                } else if (itemId == R.id.navMyOrders) {
-//                    // Launch OrdersActivity
-//                    Intent intent = new Intent(Main.this, OrdersActivity.class);
-//                    startActivity(intent);
-//                } else if (itemId == R.id.navMyComments) {
-//                    // Launch CommentsActivity
-//                    Intent intent = new Intent(Main.this, CommentsActivity.class);
-//                    startActivity(intent);
-//                } else if (itemId == R.id.navCategories) {
-//                    // Launch CategoriesActivity
-//                    Intent intent = new Intent(Main.this, CategoriesActivity.class);
-//                    startActivity(intent);
-//                } else if (itemId == R.id.navLogout) {
-//                    // Show confirmation dialog before logout
-//                    showLogoutConfirmationDialog();
-//                }
+                if (itemId == R.id.navHome) {
+                    // Load HomeActivity
+                    Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                } else if (itemId == R.id.navCart) {
+                    // Launch CartActivity
+                    Intent intent = new Intent(HomeActivity.this, CartActivity.class);
+                    startActivity(intent);
+                } else if (itemId == R.id.navLogout) {
+                    // Show confirmation dialog before logout
+                    showLogoutConfirmationDialog();
+                }
 
                 navigatorDrawer.close();  // Close the drawer after selection
                 return true;
@@ -368,12 +351,6 @@ public class HomeActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // Handle logout
-                SharedPreferences preferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.remove("jwt_token");
-                editor.apply();
-
                 Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);

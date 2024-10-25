@@ -1,6 +1,10 @@
 package com.example.automate;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +20,8 @@ import model.Product;
 public class CartActivity extends AppCompatActivity implements CartAdapter.OnQuantityChangeListener {
 
     private TextView totalAmountTextView;
+    private Button checkoutButton;
+    private ImageButton buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +29,25 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnQua
         setContentView(R.layout.activity_cart);
 
         totalAmountTextView = findViewById(R.id.totalAmountTextView);
+        checkoutButton = findViewById(R.id.checkoutButton);
+        buttonBack = findViewById(R.id.buttonBack);
+
+        // Handle back click to load Cart
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        // Handle checkout click to load Cart
+        checkoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CartActivity.this, CheckoutActivity.class);
+                startActivity(intent);
+            }
+        });
 
         List<Product> productList = new ArrayList<>();
         productList.add(new Product("1", "Brake Pads", "https://cdn2.hubspot.net/hubfs/121786/auto-parts.jpg", "category1",

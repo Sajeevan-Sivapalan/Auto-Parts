@@ -125,9 +125,9 @@
                     android:id="@+id/right_drawer"
                     android:layout_width="280dp"
                     android:layout_height="match_parent"
-                    android:layout_gravity="end"
-                    android:background="?android:attr/colorBackground"
+                    android:background="@color/secondary"
                     android:elevation="4dp"
+                    android:layout_gravity="end"
                     android:orientation="vertical"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="40dp">
@@ -195,6 +195,8 @@
                                 android:id="@+id/buttonClearPriceFilter"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:paddingHorizontal="10dp"
+                                android:background="@drawable/primary_button"
                                 android:layout_marginBottom="30dp"
                                 android:text="Clear Price Filter" />
 
@@ -242,6 +244,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
+                                android:background="@drawable/primary_button"
+                                android:paddingHorizontal="10dp"
                                 android:layout_marginBottom="30dp"
                                 android:text="Clear Rating Filter" />
 
@@ -266,7 +270,9 @@
                                 android:id="@+id/buttonClearCategoryFilter"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:background="@drawable/primary_button"
                                 android:layout_marginTop="10dp"
+                                android:paddingHorizontal="10dp"
                                 android:text="Clear Category Filter" />
                         </LinearLayout>
                     </ScrollView>
@@ -287,6 +293,7 @@
         app:menu="@menu/drawer_items"
         app:dividerInsetStart="60dp"
         app:itemIconPadding="30dp"
+        android:background="@color/primary"
         app:headerLayout="@layout/drawer_header"
         android:layout_gravity="start" />
 

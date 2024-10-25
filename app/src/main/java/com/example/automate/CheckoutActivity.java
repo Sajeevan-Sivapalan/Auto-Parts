@@ -1,8 +1,10 @@
 package com.example.automate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -22,12 +24,34 @@ public class CheckoutActivity extends AppCompatActivity {
     private CheckoutAdapter checkoutAdapter;
     private List<Product> productList = new ArrayList<>();
     private TextView subtotalAmountTextView, totalAmountTextView;
+    private Button payNowButton;
+    private ImageButton buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_checkout);
+
+        payNowButton = findViewById(R.id.payNowButton);
+        buttonBack = findViewById(R.id.buttonBack);
+
+        // Handle back click to load Cart
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        // Handle checkout click to load Cart
+        payNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CheckoutActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Initialize RecyclerView
         cartRecyclerView = findViewById(R.id.cartRecyclerView);
@@ -47,15 +71,6 @@ public class CheckoutActivity extends AppCompatActivity {
 
         // Calculate and display the summary
         updateSummary();
-
-        // Set up button listeners
-        Button payNowButton = findViewById(R.id.payNowButton);
-        payNowButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle payment logic here
-            }
-        });
 
         // Handle back button click
         findViewById(R.id.buttonBack).setOnClickListener(new View.OnClickListener() {
