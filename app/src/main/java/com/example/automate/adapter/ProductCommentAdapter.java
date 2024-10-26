@@ -1,4 +1,4 @@
-package adapter;
+package com.example.automate.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,12 +11,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.example.automate.R;
 
 import java.util.List;
 
-import model.ProductCommentData;
+import com.example.automate.model.ProductCommentData;
 
 /**
  * Adapter class for displaying product comments in a RecyclerView.

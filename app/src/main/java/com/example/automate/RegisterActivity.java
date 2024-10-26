@@ -65,6 +65,7 @@ public class RegisterActivity extends AppCompatActivity {
         txtLogin.setOnClickListener(v -> startActivity(new Intent(this, LoginActivity.class)));
     }
 
+    // Toggle password visibility
     private void togglePasswordVisibility(EditText editText, ImageView imageView) {
         if (editText.getTransformationMethod() == PasswordTransformationMethod.getInstance()) {
             editText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());

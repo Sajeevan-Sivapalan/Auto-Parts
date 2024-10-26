@@ -1,4 +1,4 @@
-package adapter;
+package com.example.automate.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso; // Import Picasso
 
 import java.util.List;
 
-import model.Product;
+import com.example.automate.model.Product;
 
 public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.CheckoutViewHolder> {
 

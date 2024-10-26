@@ -1,4 +1,4 @@
-package adapter;
+package com.example.automate.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import model.Product;
+import com.example.automate.model.Product;
 
 /**
  * Adapter class for displaying products in a RecyclerView.

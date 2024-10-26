@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import adapter.CheckoutAdapter;
-import model.Product;
+import com.example.automate.adapter.CheckoutAdapter;
+import com.example.automate.model.Product;
 
 public class CheckoutActivity extends AppCompatActivity {
 
@@ -83,10 +83,11 @@ public class CheckoutActivity extends AppCompatActivity {
         });
     }
 
+    // View total price
     private void updateSummary() {
         double subtotal = 0.0;
         for (Product product : productList) {
-            subtotal += product.getPrice(); // Assuming each product is counted once
+            subtotal += product.getPrice();
         }
 
         subtotalAmountTextView.setText(String.format("$%.2f", subtotal));

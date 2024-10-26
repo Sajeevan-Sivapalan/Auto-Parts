@@ -1,4 +1,4 @@
-package model;
+package com.example.automate.model;
 
 /**
  * The Product class represents a product in the e-commerce system with fields for product ID, name,
@@ -21,24 +21,10 @@ public class Product {
     private String stockLastUpdated;
     private String productCategoryName;
     private String vendorName;
-    private double averageRating ;
+    private double averageRating;
 
     /**
      * Constructor to initialize the product fields.
-     * @param productId The unique identifier for the product.
-     * @param name The name of the product.
-     * @param productImage The URL of the product image.
-     * @param categoryId The ID of the product category.
-     * @param description The description of the product.
-     * @param price The price of the product.
-     * @param availableStock The number of items available in stock.
-     * @param isActive The status indicating if the product is active.
-     * @param vendorId The ID of the vendor.
-     * @param createdAt The creation date of the product.
-     * @param stockLastUpdated The last update date of the stock.
-     * @param productCategoryName The name of the product category.
-     * @param vendorName The name of the vendor.
-     * @param averageRating The average rating of the product.
      */
     public Product(String productId, String name, String productImage, String categoryId,
                    String description, double price, int availableStock, boolean isActive,
@@ -61,6 +47,7 @@ public class Product {
     }
 
     // Getter methods for each field
+
     public String getId() {
         return productId;
     }

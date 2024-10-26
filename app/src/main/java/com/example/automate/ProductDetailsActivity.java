@@ -23,32 +23,27 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import adapter.ProductCommentAdapter;
-import model.CartManager;
-import model.ProductCommentData;
-import model.ProductImageSingleton;
+import com.example.automate.adapter.ProductCommentAdapter;
+import com.example.automate.model.CartManagerSingleton;
+import com.example.automate.model.ProductCommentData;
+import com.example.automate.model.ProductImageSingleton;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
-    ImageButton buttonBack, buttonCart;
-    ImageView clickcartHome;
+    private ImageButton buttonBack, buttonCart;
+    private ImageView productImageView, clickcartHome;
     private RecyclerView commentsRecyclerView;
-
     private Button buttonMinus, buttonPlus, updateReview, buttonAddToCart;
-    private int quantity = 1;
-    private double unitPrice;
-    private int rating = 0;
-
-    private TextView quantityTextView, productNameTextView, productPriceTextView, productDescriptionTextView, textAddToCart;
-
-    private RatingBar ratingBar;
-    private ImageView productImageView;
+    private TextView cart_count, quantityTextView, productNameTextView, productPriceTextView, productDescriptionTextView, textAddToCart;
+    private RatingBar ratingBar, ratingBarInput;
+    private EditText editTextComment;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private int MAX_QUANTITY = 10;
-    private TextView cart_count;
 
+    private int quantity = 1;
+    private int rating = 0;
+    private int MAX_QUANTITY = 10;
     private String productId, userId, name, productImage, categoryId, description, vendorId, createdAt, stockLastUpdated, productCategoryName, vendorName;
-    private double price, averageRating;
+    private double unitPrice, price, averageRating;
     private int availableStock;
     private boolean isActive;
 
@@ -59,7 +54,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_details);
 
         cart_count = findViewById(R.id.cart_count);
-        cart_count.setText(String.valueOf(CartManager.getInstance().getCartCount()));
+        cart_count.setText(String.valueOf(CartManagerSingleton.getInstance().getCartCount()));
 
         // Get data from Intent
         Intent intent = getIntent();
@@ -82,11 +77,28 @@ public class ProductDetailsActivity extends AppCompatActivity {
         clickcartHome = findViewById(R.id.clickcartHome);
         buttonCart = findViewById(R.id.buttonCart);
         updateReview = findViewById(R.id.updateReview);
-        RatingBar ratingBarInput = findViewById(R.id.ratingBarInput);
-        EditText editTextComment = findViewById(R.id.commentEditTextInput);
-        buttonAddToCart = findViewById(R.id.buttonAddToCart); // Initialize the button
-        buttonAddToCart.setOnClickListener(v -> addToCart()); // Set click listener
+        ratingBarInput = findViewById(R.id.ratingBarInput);
+        editTextComment = findViewById(R.id.commentEditTextInput);
+        buttonAddToCart = findViewById(R.id.buttonAddToCart);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+        productNameTextView = findViewById(R.id.productNameTextView);
+        productPriceTextView = findViewById(R.id.productPriceTextView);
+        productDescriptionTextView = findViewById(R.id.productDescriptionTextView);
+        textAddToCart = findViewById(R.id.textAddToCart);
+        ratingBar = findViewById(R.id.ratingBar);
+        productImageView = findViewById(R.id.productImageView);
+        quantityTextView = findViewById(R.id.quantityTextView);
+        commentsRecyclerView = findViewById(R.id.commentsRecyclerView);
+        buttonMinus = findViewById(R.id.buttonMinus);
+        buttonPlus = findViewById(R.id.buttonPlus);
 
+        // Set click listener for the back button
+        buttonBack.setOnClickListener(v -> onBackPressed());
+
+        // Set click listener for the add to cart button
+        buttonAddToCart.setOnClickListener(v -> addToCart());
+
+        // Set OnChangeListener for rating bar
         ratingBarInput.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
@@ -95,6 +107,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
 
+        // Set OnClickListener for update review button
         updateReview.setOnClickListener(v -> {
             // Get the rating and comment text
             int ratingIntValue = (int) ratingBarInput.getRating();
@@ -117,8 +130,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         });
 
-
-        // Handle Home click to load HomeFragment
+        // Set OnClickListener for update to load Home Activity
         clickcartHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,7 +139,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
 
-        // Handle Cart click to load Cart
+        // Set OnClickListener for update to load Cart Activity
         buttonCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,23 +147,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        // Set click listener for the back button
-        buttonBack.setOnClickListener(v -> onBackPressed());
-
-        // Initialize views
-        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
-        productNameTextView = findViewById(R.id.productNameTextView);
-        productPriceTextView = findViewById(R.id.productPriceTextView);
-        productDescriptionTextView = findViewById(R.id.productDescriptionTextView);
-        textAddToCart = findViewById(R.id.textAddToCart);
-
-        ratingBar = findViewById(R.id.ratingBar);
-        productImageView = findViewById(R.id.productImageView);
-        quantityTextView = findViewById(R.id.quantityTextView);
-
-        // Fetch product details
-        fetchProductDetails(productId);
 
         // Set up SwipeRefreshLayout
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -164,12 +159,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
 
-        commentsRecyclerView = findViewById(R.id.commentsRecyclerView);
-
-        buttonMinus = findViewById(R.id.buttonMinus);
-        buttonPlus = findViewById(R.id.buttonPlus);
-
-        // Set up button listeners
+        // Set up count button listeners
         buttonMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -192,14 +182,17 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 }
             }
         });
-    }
 
-
-    private void refreshProductDetails() {
-        // Optionally, you can add logic here to fetch updated product details
+        // Fetch product details
         fetchProductDetails(productId);
     }
 
+    // Refresh product details
+    private void refreshProductDetails() {
+        fetchProductDetails(productId);
+    }
+
+    // Back button clicked
     @Override
     public void onBackPressed() {
         // Check if the fragment manager has a back stack
@@ -208,6 +201,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // Load product details
     private void fetchProductDetails(String productId) {
 
         Intent intent = getIntent();
@@ -233,8 +227,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productDescriptionTextView.setText(description);
         MAX_QUANTITY = availableStock;
         unitPrice = price;
-
-        // Set the rating bar
         ratingBar.setRating((float) averageRating);
 
         // Use Picasso to load the product image into the ImageView
@@ -257,12 +249,13 @@ public class ProductDetailsActivity extends AppCompatActivity {
         fetchComments();
     }
 
+    // Get total price for the selected count
     private void updateTotalPrice() {
-        // Calculate total price
-        double totalPrice = quantity * unitPrice; // Calculate total price based on quantity and unit price
-        textAddToCart.setText(String.format("LKR %.2f", totalPrice)); // Update the TextView with total price
+        double totalPrice = quantity * unitPrice;
+        textAddToCart.setText(String.format("LKR %.2f", totalPrice));
     }
 
+    // Load product comment details
     private void fetchComments() {
         // Create a mock list of comments
         List<ProductCommentData> comments = new ArrayList<>();

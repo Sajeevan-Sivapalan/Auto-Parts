@@ -1,16 +1,13 @@
 package com.example.automate;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Base64;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.squareup.picasso.Picasso;
 
-import model.ProductImageSingleton;
+import com.example.automate.model.ProductImageSingleton;
 
 public class FullScreenImageActivity extends AppCompatActivity {
 

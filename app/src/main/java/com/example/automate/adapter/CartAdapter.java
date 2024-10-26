@@ -1,4 +1,4 @@
-package adapter;
+package com.example.automate.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,13 +17,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import model.Product;
+import com.example.automate.model.Product;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
 
     private List<Product> productList;
     private Map<Product, Integer> productQuantities;
-    private OnQuantityChangeListener quantityChangeListener;  // Listener for quantity changes
+    private OnQuantityChangeListener quantityChangeListener;
 
     public CartAdapter(List<Product> productList, OnQuantityChangeListener quantityChangeListener) {
         this.productList = productList;
@@ -31,7 +31,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         productQuantities = new HashMap<>();
 
         for (Product product : productList) {
-            productQuantities.put(product, 1); // Initialize all quantities to 1
+            productQuantities.put(product, 1);
         }
         notifyTotalPrice(); // Initialize total price
     }
@@ -58,6 +58,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.itemPriceTextView.setText(String.format("Price: LKR %.2f", product.getPrice()));
         holder.itemCountChangeTextView.setText(String.valueOf(quantity)); // Update the count to display current quantity
 
+        // Set OnClickListeners for Count Buttons
         holder.plusButton.setOnClickListener(v -> {
             int newQuantity = productQuantities.get(product) + 1;
             productQuantities.put(product, newQuantity);

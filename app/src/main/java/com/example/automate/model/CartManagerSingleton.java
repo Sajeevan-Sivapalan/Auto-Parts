@@ -1,18 +1,23 @@
-package model;
+package com.example.automate.model;
 
-public class CartManager {
-    private static CartManager instance;
+/**
+ * The CartManagerSingleton class implements the Singleton pattern
+ * to provide a global point of access to a single instance of the cart item count.
+ * This class allows for setting and getting the cart item count.
+ */
+public class CartManagerSingleton {
+    private static CartManagerSingleton instance;
     private int cartCount;
 
     // Private constructor to prevent instantiation
-    private CartManager() {
-        cartCount = 0; // Initialize cart count
+    private CartManagerSingleton() {
+        cartCount = 3; // Initialize cart count
     }
 
     // Public method to get the single instance of the class
-    public static synchronized CartManager getInstance() {
+    public static synchronized CartManagerSingleton getInstance() {
         if (instance == null) {
-            instance = new CartManager();
+            instance = new CartManagerSingleton();
         }
         return instance;
     }

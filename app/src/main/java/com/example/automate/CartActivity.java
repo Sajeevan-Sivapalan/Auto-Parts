@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import adapter.CartAdapter;
-import model.Product;
+import com.example.automate.adapter.CartAdapter;
+import com.example.automate.model.Product;
 
 public class CartActivity extends AppCompatActivity implements CartAdapter.OnQuantityChangeListener {
 
@@ -70,6 +70,7 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnQua
         cartRecyclerView.setAdapter(cartAdapter);
     }
 
+    // Update total price when count changes
     @Override
     public void onQuantityChanged(double totalAmount) {
         totalAmountTextView.setText(String.format("Total: LKR %.2f", totalAmount));
