@@ -90,7 +90,7 @@ public class CheckoutActivity extends AppCompatActivity {
             subtotal += product.getPrice();
         }
 
-        subtotalAmountTextView.setText(String.format("$%.2f", subtotal));
-        totalAmountTextView.setText(String.format("$%.2f", subtotal)); // Assuming no additional fees
+        subtotalAmountTextView.setText(String.format("LKR %.2f", subtotal));
+        totalAmountTextView.setText(String.format("LKR %.2f", subtotal)); // Assuming no additional fees
     }
 }
