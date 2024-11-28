@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private TextView txtSignup;
     private ImageView pwdVisible;
+    private EditText edtUsername;
     private EditText edtPassword;
 
     @Override
@@ -33,14 +35,17 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         pwdVisible = findViewById(R.id.imgPasswordVisibility);
         txtSignup = findViewById(R.id.text_register);
-        edtPassword = findViewById(R.id.edt_password);
+        edtUsername = findViewById(R.id.edt_email);  // Username field
+        edtPassword = findViewById(R.id.edt_password);  // Password field
 
-        // Set OnClickListener for Button to load Home Activity
+        // Set OnClickListener for Button to validate inputs and load Home Activity
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                startActivity(intent);
+                if (validateInputs()) {
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -58,7 +63,22 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
+    }
 
+    // Function to validate inputs
+    private boolean validateInputs() {
+        String username = edtUsername.getText().toString().trim();
+        String password = edtPassword.getText().toString().trim();
+
+        if (username.isEmpty()) {
+            Toast.makeText(this, "Please enter your username", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (password.isEmpty()) {
+            Toast.makeText(this, "Please enter your password", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
     // Function to toggle password visibility

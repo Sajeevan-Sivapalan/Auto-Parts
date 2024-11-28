@@ -327,7 +327,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     // This function applies the category, search, price, rating, and sorting filters
-    private void applyFilters() {
+    public void applyFilters() {
         if (productList == null || productList.isEmpty()) {
             // Product list is not yet loaded, so return early
             return;
